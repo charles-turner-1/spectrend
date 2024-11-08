@@ -180,6 +180,7 @@ In order to recover an autocorrelation, the correlation must only depend on the 
 between the two points, not the points themselves. Therefore, it must be
 the case that if $k_1 +k_2 \neq 0$, $\langle A_{k_1}A_{k_2}\rangle = 0$,
 and therefore:
+
 $$\langle A_{k_1}A_{k_2} \rangle = \langle A_{k_1}A_{k_{-1}}\rangle \delta_{k_1 + k_2}=\langle A_{k_1}A^*_{k_{1}}\rangle \delta_{k_1 + k_2},
   \label{eqn:ADiscreteDiracDelta}$$ 
 
