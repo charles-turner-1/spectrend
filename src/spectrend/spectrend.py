@@ -1,3 +1,3 @@
 """
-A command line utility to provide a better version of `ncdump -h` for netCDF files.
+A toolbox for determining the presence of trends using spectral analysis
 """
