@@ -168,7 +168,7 @@ $$C_{AA}(x_1,x_2) =  \Big\langle \sum_{k_2} A_{k_2} e^{ik_2 x_2 } \sum_{k_1} A_{
 
   Combining the sums, we obtain
 
-$$C_{AA}(x_1,x_2) =  \Big\langle \sum_{k_2} \sum_{k_1} A_{k_2} A_{k_1} e^{ik_2 x_2 }  e^{ik_1 x_1 }\Big\rangle ,
+$$C_{AA}(x_1,x_2) =  \Big\langle \sum_{k_2} \sum_{k_1} A_{k_2} A_{k_1} e^{ik_2 x_2 }  e^{ik_1 x_1 }\Big\rangle 
   \label{eqn:AAutoCorrFourier2}$$ 
 
    which we may rewrite using $r = x_2 - x_1$ as
@@ -181,7 +181,7 @@ between the two points, not the points themselves. Therefore, it must be
 the case that if $k_1 +k_2 \neq 0$, $\langle A_{k_1}A_{k_2}\rangle = 0$,
 and therefore:
 
-$$\langle A_{k_1}A_{k_2} \rangle = \langle A_{k_1}A_{k_{-1}}\rangle \delta_{k_1 + k_2} = \langle A_{k_1}A^*_{k_{1}}\rangle \delta_{k_1 + k_2}$$,
+$$\langle A_{k_1}A_{k_2} \rangle = \langle A_{k_1}A_{k_{-1}}\rangle \delta_{k_1 + k_2} = \langle A_{k_1}A^*_{k_{1}}\rangle \delta_{k_1 + k_2}$$
 
   which may also be observed as a corollary of Equation
 [](eqn-diracdelta). Therefore, Fourier coefficients at
