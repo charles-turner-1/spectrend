@@ -34,13 +34,15 @@ Consider a Gaussian distributed variable, $X$, with standard deviation
 $\sigma$ and mean $\mu$. If we have $N$ observations of $X$ with mean
 $\bar{x}$ and standard deviation $s$, we can say with 95% confidence
 that $\mu \neq 0$ if: 
-<a name="eqn-AstdErrMean"></a>
+
 $$\bar{x} \ge \pm \frac{2s}{\sqrt{N-1}}$$
+
  This is simply the formula for the standard
 error of the mean, using Central Limit Theorem. This can be rearranged
 as follows:
-<a name="eqn-AstdErrSNR"></a>
+
 $$\frac{\bar{x}}{s} = \mathrm{SNR} \ge \pm 2 \frac{1}{\sqrt{N - 1}}$$
+
 where the ratio of mean to standard deviation where the ratio of mean to standard deviation
 is the signal-to-noise ration, SNR.
 
@@ -74,37 +76,46 @@ the discrete case is straightforward.
 $y(t)$ is assumed to be composed of two components: one which increases
 linearly with time, and a noise component which may be decomposed as a
 Fourier series. Hence,
+
 $$y(t) = \gamma t+ f(t) = \gamma t + \int_{-\infty}^{\infty} \frac{d \omega}{2 \pi} f (\omega) e ^{ - i \omega t} ,
-  \label{eqn:AFourierDecomp1}$$ .
-  where $\gamma$ is the gradient of the
-linearly increasing component, and $f(t)$ the noise component. Each
-frequency component, $f(\omega)$, is given by
+  \label{eqn:AFourierDecomp1}$$ 
+
+where $\gamma$ is the gradient of the linearly increasing component, and $f(t)$ the noise component. Each frequency component, $f(\omega)$, is given by
+
 $$f(\omega) = \int_{-\infty}^{\infty} dt f(t) e ^{i \omega t}
-  \label{eqn:AfOmegaDef}$$ .
-  Now, each frequency component has its phase
+  \label{eqn:AfOmegaDef}$$ 
+
+Now, each frequency component has its phase
 shuffled by a random amount $\phi(\omega)$, where $\phi(\omega)$ is
 uniformly distributed in the range $[-\pi,\pi]$, for a new noise
 component in frequency space, $f'(\omega)$:
+
 $$f'(\omega) = \int_{-\infty}^{\infty} dt f(t) e ^{i(\omega t + \phi (\omega))}
-  \label{eqn:AfPrimeOmegaDef}$$ .
-  Now, inverse transforming $f'(\omega)$
-to obtain a phase suffled noise component, $f'(t)$, we see
+  \label{eqn:AfPrimeOmegaDef}$$ 
+
+Now, inverse transforming $f'(\omega)$ to obtain a phase suffled noise component, $f'(t)$, we see
+
 $$f'(t) = \mathcal{F}^{-1}\big(f'(\omega)\big) = \int_{-\infty}^{\infty} \frac{dt d\omega'}{2 \pi} f(t) e ^{
   i ( \omega t + \phi (\omega) - \omega' t)} ,
-  \label{eqn:AInvFourierTransform}$$ .
-  which, noting the identity
-<a name="eqn-diracdelta"></a>
+  \label{eqn:AInvFourierTransform}$$ 
+
+which, noting the identity
+
 $$\int_{-\infty}^{\infty} dk e ^ {ik ( x - x')} = 2\pi \delta (x - x'),
-  \label{eqn:ADiracDeltaIdendity}$$ .
+  \label{eqn:ADiracDeltaIdendity}$$ 
+
   gives
+
 $$f'(t) = \int_{-\infty}^{\infty} \frac{d \omega}{2 \pi} f (\omega) e ^{ - i \omega t} e ^{i \phi (\omega)},
-  \label{eqn:AfPrimeTime}$$ .
+  \label{eqn:AfPrimeTime}$$ 
+
   and so
+
 $$y'(t) = \gamma t+ f'(t) = \gamma t + \int_{-\infty}^{\infty} \frac{d \omega}{2 \pi} f (\omega) e ^{ - i \omega t} e ^{i \phi (\omega)}
-  \label{eqn:AyPrimeTime}$$ .
-  We now have a new variable of time $y'(t)$,
-which has the same linearly increasing component. The power spectrum of
-$f'(t)$ and $f(t)$ are identical, as the power spectrum is phase
+  \label{eqn:AyPrimeTime}$$ 
+
+We now have a new variable of time $y'(t)$, which has the same linearly increasing component. 
+The power spectrum of $f'(t)$ and $f(t)$ are identical, as the power spectrum is phase
 independent.
 
 This procedure forms the basis of the bootstrap. By performing this
@@ -146,28 +157,33 @@ The autocorrelation based approach to determining trend emergence is not
 described in detail here. However, it seeks to account for the reduction
 of new information in successive measurements due to autocorrelation.
 Consider the correlation between two points of the same function:
+
 $$\langle A(x_2)A(x_1)\rangle = C_{AA}(x_2,x_1) = C_{AA}(x_1,x_2)
-  \label{eqn:AAutoCorr}$$ .
-  If we now insert the Fourier representations
-for $A(x_1),A(x_2)$, we obtain
+  \label{eqn:AAutoCorr}$$ 
+
+If we now insert the Fourier representations for $A(x_1),A(x_2)$, we obtain
+
 $$C_{AA}(x_1,x_2) =  \Big\langle \sum_{k_2} A_{k_2} e^{ik_2 x_2 } \sum_{k_1} A_{k_1} e^{ik_1 x_1 }\Big\rangle 
-  \label{eqn:AAutoCorrFourier1}$$ .
+  \label{eqn:AAutoCorrFourier1}$$ 
+
   Combining the sums, we obtain
+
 $$C_{AA}(x_1,x_2) =  \Big\langle \sum_{k_2} \sum_{k_1} A_{k_2} A_{k_1} e^{ik_2 x_2 }  e^{ik_1 x_1 }\Big\rangle ,
-  \label{eqn:AAutoCorrFourier2}$$ .
-   which we may rewrite using
-$r = x_2 - x_1$ as
+  \label{eqn:AAutoCorrFourier2}$$ 
+
+   which we may rewrite using $r = x_2 - x_1$ as
+
 $$C_{AA}(x_1,x_2) =  \Big\langle \sum_{k_2} \sum_{k_1} A_{k_2} A_{k_1} e^{ik_2r} e^{i(k_1+k_2)x_1}\Big\rangle
-  \label{eqn:AAutoCorrFourier3}$$ .
-  In order to recover an
-autocorrelation, the correlation must only depend on the distance
+  \label{eqn:AAutoCorrFourier3}$$ 
+
+In order to recover an autocorrelation, the correlation must only depend on the distance
 between the two points, not the points themselves. Therefore, it must be
 the case that if $k_1 +k_2 \neq 0$, $\langle A_{k_1}A_{k_2}\rangle = 0$,
 and therefore:
 $$\langle A_{k_1}A_{k_2} \rangle = \langle A_{k_1}A_{k_{-1}}\rangle \delta_{k_1 + k_2}=\langle A_{k_1}A^*_{k_{1}}\rangle \delta_{k_1 + k_2},
-  \label{eqn:ADiscreteDiracDelta}$$ . 
-  which may also be observed as a
-corollary of Equation
+  \label{eqn:ADiscreteDiracDelta}$$ 
+
+  which may also be observed as a corollary of Equation
 [](eqn-diracdelta). Therefore, Fourier coefficients at
 differing wavenumbers must be uncorrelated: the random phase shuffling
 of the bootstrap respects this requirement.
@@ -177,11 +193,13 @@ Now, rewriting Equation
 reference="eqn:AAutoCorrFourier3"} observing the constraints of Equation
 [\[eqn:ADiscreteDiracDelta\]](#eqn:ADiscreteDiracDelta){reference-type="ref"
 reference="eqn:ADiscreteDiracDelta"}, we obtain 
+
 $$\begin{split}
   C_{AA}(r) =&  \sum_{k_1} \sum_{k_{-1}} \langle A_{k_1}A_{k_{-1}} \rangle e ^{-i k_1 r} \\
   =& \sum_{k}\sum_{k}\langle A_k A_k^*\rangle e ^{ikr} = \sum_{k}\sum_{k}\langle |A_k|^2  \rangle e ^{ikr} ,
 \end{split}
-  \label{eqn:APowerSpectrum} $$.  
+  \label{eqn:APowerSpectrum} $$
+
 having now moved the angled brackets
 inside the sum and removed the unecessary numbered subscripts. From
 this, we can see that the 1<sup>st</sup> order autocorrelation function is the
