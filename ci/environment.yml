@@ -1,0 +1,11 @@
+name: spectrend
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - numpy>=2.0
+  - matplotlib>=3.0
+  - scipy>=1.14
+  - pytest
+  - pytest-cov
+  - pytest-sugar
